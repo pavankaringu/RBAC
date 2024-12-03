@@ -39,3 +39,8 @@
     <li>Assign a name, email, role, and status to the user.</li>
     <li>Edit or delete users using the respective buttons in the table.</li>
 </ol>
+
+<h3>Feel Free to Contribute </h3>
+<p>Contributions are welcome! Feel free to fork the repository and submit a pull request.</p>
+<h4>NOTE</h4>
+<p>Check for required dependencies before running the application </p>
