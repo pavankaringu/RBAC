@@ -1,24 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UsersForm from "./UsersForm";
 
-function UsersTable() {
-  const [users, setUsers] = useState([]);
-  const [roles, setRoles] = useState([]);
+function UsersTable({ users, setUsers, roles }) {
   const [showForm, setShowForm] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
-
-  // Load users and roles from localStorage
-  useEffect(() => {
-    const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const savedRoles = JSON.parse(localStorage.getItem("roles")) || [];
-    setUsers(savedUsers);
-    setRoles(savedRoles);
-  }, []);
-
-  // Save users to localStorage
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(users));
-  }, [users]);
 
   // Handle Add/Edit User
   const handleSaveUser = (user) => {
@@ -41,11 +26,10 @@ function UsersTable() {
   return (
     <div className="container mx-auto p-6">
       <div className="bg-white shadow-lg rounded-lg p-6">
-        {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-700">User Management</h2>
           <button
-            className="bg-blue-500 text-white font-semibold px-5 py-2 rounded-full shadow-lg hover:bg-blue-600 transition duration-300"
+            className="bg-stone-500 text-white font-semibold px-5 py-2 rounded-full shadow-lg hover:bg-stone-700 transition duration-300 hover:scale-105"
             onClick={() => setShowForm(true)}
           >
             {editingUser ? "Edit User" : "Add User"}
@@ -55,7 +39,7 @@ function UsersTable() {
         {/* Users Table */}
         <div className="overflow-x-auto">
           <table className="table-auto w-full bg-gray-50 shadow-md rounded-lg">
-            <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+            <thead className="bg-gradient-to-r from-stone-600 to-stone-800 text-white">
               <tr>
                 <th className="px-4 py-3 text-left">Name</th>
                 <th className="px-4 py-3 text-left">Email</th>

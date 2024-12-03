@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 
-function RolesTable() {
-  const [roles, setRoles] = useState([]);
+function RolesTable({roles, setRoles}) {
   const [showForm, setShowForm] = useState(false);
   const [editingRole, setEditingRole] = useState(null);
   const [error, setError] = useState("");
 
   // Load roles from localStorage
-  useEffect(() => {
-    const savedRoles = JSON.parse(localStorage.getItem("roles")) || [];
-    setRoles(savedRoles);
-  }, []);
+  // useEffect(() => {
+  //   const savedRoles = JSON.parse(localStorage.getItem("roles")) || [];
+  //   setRoles(savedRoles);
+  // }, []);
  
   // Save roles to localStorage
-  useEffect(() => {
-    localStorage.setItem("roles", JSON.stringify(roles));
-  }, [roles]);
+  // useEffect(() => {
+  //   localStorage.setItem("roles", JSON.stringify(roles));
+  // }, [roles]);
 
   // Handle Add/Edit Role
   const handleSaveRole = (role) => {
@@ -50,7 +49,7 @@ function RolesTable() {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-700">Role Management</h2>
           <button
-            className="bg-blue-500 text-white font-semibold px-5 py-2 rounded-full shadow-lg hover:bg-blue-600 transition duration-300"
+            className="bg-emerald-500 text-white font-semibold px-5 py-2 rounded-full shadow-lg hover:bg-emerald-600 transition duration-300 hover:scale-105"
             onClick={() => setShowForm(true)}
           >
             {editingRole ? "Edit Role" : "Add Role"}
@@ -67,7 +66,7 @@ function RolesTable() {
         {/* Roles Table */}
         <div className="overflow-x-auto">
           <table className="table-auto w-full bg-gray-50 shadow-md rounded-lg">
-            <thead className="bg-gradient-to-r from-green-500 to-green-700 text-white">
+            <thead className="bg-gradient-to-r from-emerald-500 to-emerald-700 text-white">
               <tr>
                 <th className="px-4 py-3 text-left">Role Name</th>
                 <th className="px-4 py-3 text-left">Permissions</th>
